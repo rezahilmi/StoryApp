@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.storyapp.data.UserRepository
 import com.example.storyapp.data.api.LoginResponse
-import com.example.storyapp.data.pref.UserModel
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -32,12 +31,6 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
             } finally {
                 _isLoading.value = false
             }
-        }
-    }
-
-    fun saveSession(user: UserModel) {
-        viewModelScope.launch {
-            userRepository.saveSession(user)
         }
     }
 }

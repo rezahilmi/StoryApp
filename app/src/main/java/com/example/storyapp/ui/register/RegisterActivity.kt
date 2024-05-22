@@ -28,9 +28,9 @@ class RegisterActivity : AppCompatActivity() {
         setupView()
 
         val factory = ViewModelFactory.getInstance(this)
-        registerViewModel = ViewModelProvider(this, factory).get(RegisterViewModel::class.java)
+        registerViewModel = ViewModelProvider(this, factory)[RegisterViewModel::class.java]
 
-        registerViewModel.registerResult.observe(this, { response ->
+        registerViewModel.registerResult.observe(this) { response ->
             if (response.error == false) {
                 AlertDialog.Builder(this).apply {
                     setMessage(response.message)
@@ -43,11 +43,11 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 showToast(response.message ?: "Gagal mendaftar akun")
             }
-        })
+        }
 
-        registerViewModel.isLoading.observe(this, { isLoading ->
+        registerViewModel.isLoading.observe(this) { isLoading ->
             showLoading(isLoading)
-        })
+        }
 
         setupAction()
         addValidation()

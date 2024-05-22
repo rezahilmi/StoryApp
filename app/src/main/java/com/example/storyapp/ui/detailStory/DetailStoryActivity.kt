@@ -2,20 +2,15 @@ package com.example.storyapp.ui.detailStory
 
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.example.storyapp.R
-import com.example.storyapp.data.api.DetailStoryResponse
 import com.example.storyapp.data.api.Story
 import com.example.storyapp.databinding.ActivityDetailStoryBinding
-import com.example.storyapp.databinding.ActivityLoginBinding
 import com.example.storyapp.ui.ViewModelFactory
-import com.example.storyapp.ui.main.MainViewModel
 
 class DetailStoryActivity : AppCompatActivity() {
     companion object {
@@ -45,6 +40,9 @@ class DetailStoryActivity : AppCompatActivity() {
                 }
             }
         }
+        detailStoryViewModel.isLoading.observe(this) { isLoading ->
+            showLoading(isLoading)
+        }
     }
 
     private fun setupView() {
@@ -61,8 +59,12 @@ class DetailStoryActivity : AppCompatActivity() {
     }
 
     private fun setStoryDetailData(story: Story) {
-        binding.titleStory.text = story.name
-        binding.descriptionStory.text = story.description
-        Glide.with(this).load(story.photoUrl).into(binding.imageStory)
+        binding.tvDetailName.text = story.name
+        binding.tvDetailDescription.text = story.description
+        Glide.with(this).load(story.photoUrl).into(binding.ivDetailPhoto)
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }

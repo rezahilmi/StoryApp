@@ -20,9 +20,6 @@ import com.example.storyapp.ui.ViewModelFactory
 import com.example.storyapp.ui.main.MainActivity
 
 class LoginActivity : AppCompatActivity() {
-    private val viewModel by viewModels<LoginViewModel> {
-        ViewModelFactory.getInstance(this)
-    }
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
 
@@ -40,7 +37,6 @@ class LoginActivity : AppCompatActivity() {
             if (response.error == false) {
                 AlertDialog.Builder(this).apply {
                     setMessage(response.message)
-//                    viewModel.saveSession(UserModel(email, "sample_token"))
                     setPositiveButton("Lanjut") { _, _ ->
                         val intent = Intent(context, MainActivity::class.java)
                         intent.flags =

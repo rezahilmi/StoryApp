@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.storyapp.data.UserRepository
 import com.example.storyapp.di.Injection
+import com.example.storyapp.ui.UploadStory.UploadStoryViewModel
 import com.example.storyapp.ui.detailStory.DetailStoryModel
 import com.example.storyapp.ui.login.LoginViewModel
 import com.example.storyapp.ui.main.MainViewModel
@@ -26,6 +27,9 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
             }
             modelClass.isAssignableFrom(DetailStoryModel::class.java) -> {
                 DetailStoryModel(repository) as T
+            }
+            modelClass.isAssignableFrom(UploadStoryViewModel::class.java) -> {
+                UploadStoryViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

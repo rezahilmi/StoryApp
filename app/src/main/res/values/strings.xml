@@ -14,4 +14,7 @@
     <string name="greeting">Halo %1$s,</string>
     <string name="logout">Keluar</string>
     <string name="logout_text">Logout</string>
+    <string name="title_detail_story">Shani Indira Natio</string>
+    <string name="description_detail_story">Sample description</string>
+    <string name="foto_shani">Foto shani</string>
 </resources>

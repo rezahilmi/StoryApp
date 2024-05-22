@@ -20,14 +20,14 @@
             android:padding="10dp">
 
             <ImageView
-                android:id="@+id/image_story"
+                android:id="@+id/iv_item_photo"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/shani_sempurna" />
 
             <TextView
-                android:id="@+id/title_story"
+                android:id="@+id/tv_item_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

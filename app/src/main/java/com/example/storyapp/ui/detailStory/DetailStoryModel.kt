@@ -6,9 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.storyapp.data.UserRepository
 import com.example.storyapp.data.api.DetailStoryResponse
-import com.example.storyapp.data.api.ListStoryItem
-import com.example.storyapp.data.api.Story
-import com.example.storyapp.data.api.StoryResponse
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
 import retrofit2.HttpException

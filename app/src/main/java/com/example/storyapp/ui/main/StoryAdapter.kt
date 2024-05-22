@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.storyapp.R
 import com.example.storyapp.data.api.ListStoryItem
-import com.example.storyapp.data.api.StoryResponse
 import com.example.storyapp.ui.detailStory.DetailStoryActivity
 
 class StoryAdapter(private val context: Context) :
@@ -49,9 +48,9 @@ class StoryAdapter(private val context: Context) :
     }
 
     class StoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val title: TextView = itemView.findViewById(R.id.title_story)
+        val title: TextView = itemView.findViewById(R.id.tv_item_name)
         val description: TextView = itemView.findViewById(R.id.description_story)
-        val image: ImageView = itemView.findViewById(R.id.image_story)
+        val image: ImageView = itemView.findViewById(R.id.iv_item_photo)
     }
 }
 
