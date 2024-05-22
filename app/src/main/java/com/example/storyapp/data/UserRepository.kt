@@ -58,10 +58,6 @@ class UserRepository private constructor(
         @Volatile
         private var instance: UserRepository? = null
 
-        fun getInstance(apiService: ApiService, userPreference: UserPreference): UserRepository {
-            return instance ?: synchronized(this) {
-                instance ?: UserRepository(apiService, userPreference).also { instance = it }
-            }
-        }
+        fun getInstance(apiService: ApiService, userPreference: UserPreference) = UserRepository(apiService, userPreference)
     }
 }

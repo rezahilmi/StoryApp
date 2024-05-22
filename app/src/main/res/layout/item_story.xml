@@ -23,8 +23,7 @@
                 android:id="@+id/iv_item_photo"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/shani_sempurna" />
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:id="@+id/tv_item_name"
