@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.storyapp.R
 import com.example.storyapp.databinding.ActivityMainBinding
+import com.example.storyapp.ui.uploadStory.UploadStoryActivity
 import com.example.storyapp.ui.ViewModelFactory
 import com.example.storyapp.ui.welcome.WelcomeActivity
 
@@ -61,6 +62,10 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.isLoading.observe(this) { isLoading ->
             showLoading(isLoading)
+        }
+
+        binding.addStoryButton.setOnClickListener {
+            startActivity(Intent(this, UploadStoryActivity::class.java))
         }
 
         mainViewModel.fetchStories()

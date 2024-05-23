@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:contentDescription="@string/foto_shani"/>
+        android:contentDescription="@string/foto_shani"
+        android:src="@drawable/ic_place_holder" />
 
     <TextView
         android:id="@+id/tv_detail_name"

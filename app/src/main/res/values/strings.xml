@@ -16,5 +16,12 @@
     <string name="logout_text">Logout</string>
     <string name="title_detail_story">Shani Indira Natio</string>
     <string name="description_detail_story">Sample description</string>
-    <string name="foto_shani">Foto shani</string>
+    <string name="foto_shani">Foto shani</string>\
+    <string name="camera_x">CameraX</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="upload">Unggah</string>
+    <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu.</string>
+    <string name="add_story">tambah story</string>
+    <string name="deskripsi">Deskripsi</string>
 </resources>
