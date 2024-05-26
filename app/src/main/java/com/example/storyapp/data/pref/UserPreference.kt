@@ -1,6 +1,7 @@
 package com.example.storyapp.data.pref
 
 import android.content.Context
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -15,6 +16,7 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "se
 class UserPreference private constructor(private val dataStore: DataStore<Preferences>) {
 
     suspend fun saveSession(user: UserModel) {
+        Log.d("UserPreference", "Saving session: ${user.token}")
         dataStore.edit { preferences ->
             preferences[ID_KEY] = user.userId
             preferences[NAME_KEY] = user.name
@@ -25,12 +27,14 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
 
     fun getSession(): Flow<UserModel> {
         return dataStore.data.map { preferences ->
-            UserModel(
+            val userModel = UserModel(
                 preferences[ID_KEY] ?: "",
                 preferences[NAME_KEY] ?: "",
                 preferences[TOKEN_KEY] ?: "",
                 preferences[IS_LOGIN_KEY] ?: false
             )
+            Log.d("UserPreference", "Retrieved session: ${userModel.token}")
+            userModel
         }
     }
 

@@ -11,7 +11,6 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -79,22 +78,8 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.edLoginEmail.text.toString()
             val password = binding.edLoginPassword.text.toString()
             if (isFormValid(email, password)) {
-                loginViewModel.login(email, password)
+                login(email, password)
             }
-//            val email = binding.edLoginEmail.text.toString()
-//            viewModel.saveSession(UserModel(email, "sample_token"))
-//            AlertDialog.Builder(this).apply {
-//                setTitle("Yeah!")
-//                setMessage("Anda berhasil login. Sudah tidak sabar untuk belajar ya?")
-//                setPositiveButton("Lanjut") { _, _ ->
-//                    val intent = Intent(context, MainActivity::class.java)
-//                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-//                    startActivity(intent)
-//                    finish()
-//                }
-//                create()
-//                show()
-//            }
         }
     }
 
@@ -125,7 +110,6 @@ class LoginActivity : AppCompatActivity() {
     private fun addValidation() {
         binding.edLoginEmail.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-                // Do nothing.
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -137,12 +121,10 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable) {
-                // Do nothing.
             }
         })
         binding.edLoginPassword.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-                // Do nothing.
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -154,7 +136,6 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable) {
-                // Do nothing.
             }
         })
     }

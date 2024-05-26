@@ -24,4 +24,6 @@
     <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu.</string>
     <string name="add_story">tambah story</string>
     <string name="deskripsi">Deskripsi</string>
+    <string name="shani_indira_natio">Shani Indira Natio</string>
+    <string name="sample_description">Sample description</string>
 </resources>

@@ -21,8 +21,8 @@ import com.example.storyapp.ui.ViewModelFactory
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import com.example.storyapp.data.ResultState
-import com.example.storyapp.ui.uploadStory.CameraActivity.Companion.CAMERAX_RESULT
 import com.example.storyapp.ui.main.MainActivity
+import com.example.storyapp.ui.uploadStory.CameraActivity.Companion.CAMERAX_RESULT
 
 class UploadStoryActivity : AppCompatActivity() {
 
@@ -58,9 +58,6 @@ class UploadStoryActivity : AppCompatActivity() {
         val factory = ViewModelFactory.getInstance(this)
         uploadStoryViewModel = ViewModelProvider(this, factory)[UploadStoryViewModel::class.java]
 
-//        uploadStoryViewModel.isLoading.observe(this) { isLoading ->
-//            showLoading(isLoading)
-//        }
 
         if (!allPermissionsGranted()) {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
@@ -69,7 +66,7 @@ class UploadStoryActivity : AppCompatActivity() {
         binding.galleryButton.setOnClickListener { startGallery() }
         binding.cameraButton.setOnClickListener { startCamera() }
         binding.cameraXButton.setOnClickListener { startCameraX() }
-        binding.uploadButton.setOnClickListener { uploadImage() }
+        binding.buttonAdd.setOnClickListener { uploadImage() }
     }
         private fun startGallery() {
             launcherGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
@@ -124,7 +121,7 @@ class UploadStoryActivity : AppCompatActivity() {
         currentImageUri?.let { uri ->
             val imageFile = uriToFile(uri, this).reduceFileImage()
             Log.d("Image File", "showImage: ${imageFile.path}")
-            val description = binding.descriptionEditText.text.toString()
+            val description = binding.edAddDescription.text.toString()
 
             uploadStoryViewModel.uploadImage(imageFile, description)
 

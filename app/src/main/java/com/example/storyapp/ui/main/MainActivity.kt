@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.rvStories)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = StoryAdapter(this)
+        adapter = StoryAdapter()
         recyclerView.adapter = adapter
 
         toolbar = findViewById(R.id.toolbar)
