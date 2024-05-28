@@ -4,6 +4,7 @@ import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
+import com.example.storyapp.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -18,9 +19,9 @@ class PasswordEditText @JvmOverloads constructor(
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val passwordLayout = parent.parent as TextInputLayout
                 if (s.isNullOrEmpty()) {
-                    passwordLayout.error = "Password harus diisi"
+                    passwordLayout.error = context.getString(R.string.password_required)
                 } else if (s.length < 8) {
-                    passwordLayout.error = "Password tidak boleh kurang dari 8 karakter"
+                    passwordLayout.error = context.getString(R.string.password_8_character)
                 } else {
                     passwordLayout.error = null
                 }

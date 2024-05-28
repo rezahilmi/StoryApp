@@ -34,4 +34,6 @@
     <string name="desc_menu_3">Stay informed with the schedule of concerts, meet and greet, and other special events.</string>
     <string name="desc_menu_4">Click the button below to get started and become part of the most updated and informed JKT48 fan community!</string>
     <string name="learn_now">Get Started</string>
+    <string name="password_8_character">Password tidak boleh kurang dari 8 karakter</string>
+    <string name="password_required">Password harus diisi</string>
 </resources>

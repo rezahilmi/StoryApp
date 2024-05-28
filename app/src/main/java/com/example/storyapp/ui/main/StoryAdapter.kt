@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.app.ActivityOptionsCompat
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.storyapp.R
@@ -20,9 +21,11 @@ class StoryAdapter :
     private val storyList = mutableListOf<ListStoryItem>()
 
     fun setStories(stories: List<ListStoryItem>) {
+        val diffCallback = StoryDiffCallback(storyList, stories)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
         storyList.clear()
         storyList.addAll(stories)
-        notifyDataSetChanged()
+        diffResult.dispatchUpdatesTo(this)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {
@@ -75,6 +78,26 @@ class StoryAdapter :
                     itemView.context.startActivity(intent, optionsCompat.toBundle())
                 }
             }
+        }
+    }
+    private class StoryDiffCallback(
+        private val oldList: List<ListStoryItem>,
+        private val newList: List<ListStoryItem>
+    ) : DiffUtil.Callback() {
+
+        override fun getOldListSize(): Int = oldList.size
+
+        override fun getNewListSize(): Int = newList.size
+
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition].id == newList[newItemPosition].id
+        }
+
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition] == newList[newItemPosition]
+        }
+        override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any? {
+            return super.getChangePayload(oldItemPosition, newItemPosition)
         }
     }
 }

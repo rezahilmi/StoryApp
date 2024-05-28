@@ -5,8 +5,6 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
@@ -56,7 +54,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         setupAction()
-        addValidation()
         playAnimation()
     }
 
@@ -105,39 +102,6 @@ class LoginActivity : AppCompatActivity() {
             binding.passwordEditTextLayout.error = null
         }
         return isValid
-    }
-
-    private fun addValidation() {
-        binding.edLoginEmail.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if (!isEmailValid(s.toString())) {
-                    binding.emailEditTextLayout.error = "Email tidak valid"
-                } else {
-                    binding.emailEditTextLayout.error = null
-                }
-            }
-
-            override fun afterTextChanged(s: Editable) {
-            }
-        })
-        binding.edLoginPassword.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if (s.length < 8) {
-                    binding.passwordEditTextLayout.error = "Password tidak boleh kurang dari 8 karakter"
-                } else {
-                    binding.passwordEditTextLayout.error = null
-                }
-            }
-
-            override fun afterTextChanged(s: Editable) {
-            }
-        })
     }
 
     private fun playAnimation() {

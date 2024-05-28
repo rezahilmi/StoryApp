@@ -63,10 +63,13 @@ class UploadStoryActivity : AppCompatActivity() {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
 
-        binding.galleryButton.setOnClickListener { startGallery() }
-        binding.cameraButton.setOnClickListener { startCamera() }
-        binding.cameraXButton.setOnClickListener { startCameraX() }
-        binding.buttonAdd.setOnClickListener { uploadImage() }
+
+        binding.apply {
+            galleryButton.setOnClickListener { startGallery() }
+            cameraButton.setOnClickListener { startCamera() }
+            cameraXButton.setOnClickListener { startCameraX() }
+            buttonAdd.setOnClickListener { uploadImage() }
+        }
     }
         private fun startGallery() {
             launcherGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
