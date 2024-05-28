@@ -9,11 +9,13 @@ android {
     compileSdk = 34
 
     defaultConfig {
+        buildConfigField("String", "BASE_URL", "\"https://story-api.dicoding.dev/v1/\"")
         applicationId = "com.example.storyapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -40,6 +42,7 @@ android {
     buildFeatures {
         compose = true
         viewBinding = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"

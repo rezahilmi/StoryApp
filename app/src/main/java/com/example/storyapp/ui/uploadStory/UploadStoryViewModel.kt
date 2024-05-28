@@ -17,7 +17,6 @@ import retrofit2.HttpException
 import java.io.File
 
 class UploadStoryViewModel(private val repository: UserRepository) : ViewModel() {
-//    fun uploadImage(file: File, description: String) = repository.uploadImage(file, description)
     private val _uploadResult = MutableLiveData<ResultState<UploadStoryResponse>>()
     val uploadResult: LiveData<ResultState<UploadStoryResponse>> = _uploadResult
 

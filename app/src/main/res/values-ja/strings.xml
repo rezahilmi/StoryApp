@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ストーリーアプリ</string>
+    <string name="register">登録</string>
+    <string name="login">ログイン</string>
+    <string name="message_welcome_page">JKT48公式ファンアプリへようこそ！最新ニュース、独占更新、そしてお気に入りのアイドルグループJKT48に関するモーメントを共有するのに最適な場所です！</string>
+    <string name="title_welcome_page">こんにちは、JKT48ファンの皆さん！\nJKT48ファンフィードへようこそ！</string>
+    <string name="title_register_page">以下の情報を入力してください</string>
+    <string name="email">メール</string>
+    <string name="password">パスワード</string>
+    <string name="message_login_page">JKT48ファンコミュニティに接続するためにアカウントにログインしてください</string>
+    <string name="title_login_page">お帰りなさい、JKT48ファンの皆さん！</string>
+    <string name="name">名前</string>
+    <string name="logout">ログアウト</string>
+    <string name="logout_text">ログアウト</string>
+    <string name="title_detail_story">シャニ・インディラ・ナティオ</string>
+    <string name="description_detail_story">サンプル説明</string>
+    <string name="foto_shani">シャニの写真</string>
+    <string name="camera_x">CameraX</string>
+    <string name="camera">カメラ</string>
+    <string name="gallery">ギャラリー</string>
+    <string name="upload">アップロード</string>
+    <string name="empty_image_warning">最初に画像ファイルを入力してください。</string>
+    <string name="add_story">ストーリーを追加</string>
+    <string name="deskripsi">説明</string>
+    <string name="shani_indira_natio">シャニ・インディラ・ナティオ</string>
+    <string name="sample_description">サンプル説明</string>
+
+    <string name="title_menu_1">🌟 最新ニュース</string>
+    <string name="title_menu_2">🎤 独占コンテンツ</string>
+    <string name="title_menu_3">📅 イベントスケジュール</string>
+    <string name="title_menu_4">今すぐ冒険を始めましょう！</string>
+    <string name="desc_menu_1">JKT48の最新活動とニュースをリアルタイムで更新。</string>
+    <string name="desc_menu_2">ここでしか見られないビデオ、写真、インタビュー。</string>
+    <string name="desc_menu_3">コンサート、ミート＆グリート、その他特別イベントのスケジュールを把握しましょう。</string>
+    <string name="desc_menu_4">下のボタンをクリックして、最新の情報を持つJKT48ファンコミュニティの一員になりましょう！</string>
+    <string name="learn_now">開始</string>
+</resources>

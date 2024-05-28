@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Story App</string>
+    <string name="register">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="message_welcome_page">Selamat datang di aplikasi resmi penggemar JKT48, tempat terbaik untuk mendapatkan berita terkini, pembaruan eksklusif, dan berbagi momen favorit Anda tentang idol grup kesayangan kita, JKT48!</string>
+    <string name="title_welcome_page">Halo Fans JKT48!\nSelamat datang di JKT48 FanFeed!</string>
+    <string name="title_register_page">Lengkapi data dirimu di bawah ini ya</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="message_login_page">Masuk ke akun Anda untuk tetap terhubung dengan komunitas penggemar JKT48</string>
+    <string name="title_login_page">Selamat datang kembali, Fans JKT48!</string>
+    <string name="name">Nama</string>
+    <string name="logout">Keluar</string>
+    <string name="logout_text">Logout</string>
+    <string name="title_detail_story">Shani Indira Natio</string>
+    <string name="description_detail_story">Sample description</string>
+    <string name="foto_shani">Foto shani</string>
+    <string name="camera_x">CameraX</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="upload">Unggah</string>
+    <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu.</string>
+    <string name="add_story">tambah story</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="shani_indira_natio">Shani Indira Natio</string>
+    <string name="sample_description">Sample description</string>
+
+    <string name="title_menu_1">🌟 Berita Terbaru</string>
+    <string name="title_menu_2">🎤 Konten Eksklusif</string>
+    <string name="title_menu_3">📅 Jadwal Acara</string>
+    <string name="title_menu_4">Mulai Petualanganmu Sekarang!</string>
+    <string name="desc_menu_1">Update real-time tentang aktivitas dan berita terbaru dari JKT48.</string>
+    <string name="desc_menu_2">Video, foto, dan wawancara eksklusif yang hanya bisa kamu temukan di sini.</string>
+    <string name="desc_menu_3">Tetap terinformasi dengan jadwal konser, meet and greet, dan acara spesial lainnya.</string>
+    <string name="desc_menu_4">Klik tombol di bawah ini untuk memulai dan jadi bagian dari komunitas fans JKT48 yang paling update dan terinformasi!</string>
+    <string name="learn_now">Mulai</string>
+</resources>

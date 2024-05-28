@@ -5,6 +5,7 @@
     android:id="@+id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".ui.welcome.WelcomeActivity">
 
     <ImageView
@@ -60,7 +61,6 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:alpha="0"
-        android:backgroundTint="@color/red"
         android:text="@string/login"
         android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
@@ -76,7 +76,6 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:alpha="0"
-        android:backgroundTint="@color/red"
         android:text="@string/register"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

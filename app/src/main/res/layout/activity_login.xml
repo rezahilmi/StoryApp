@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".ui.login.LoginActivity">
 
     <ImageView
@@ -91,7 +92,7 @@
         app:startIconDrawable="@drawable/ic_baseline_email_24"
         tools:alpha="100">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.example.storyapp.ui.customView.EmailEditText
             android:id="@+id/ed_login_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -128,7 +129,7 @@
         app:startIconDrawable="@drawable/ic_baseline_lock_24"
         tools:alpha="100">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.example.storyapp.ui.customView.PasswordEditText
             android:id="@+id/ed_login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -146,7 +147,6 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:alpha="0"
-        android:backgroundTint="@color/red"
         android:text="@string/login"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

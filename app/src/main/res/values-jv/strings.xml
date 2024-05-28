@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Story App</string>
+    <string name="register">Daftar</string>
+    <string name="login">Mlebu</string>
+    <string name="message_welcome_page">Sugeng rawuh ing aplikasi resmi penggemar JKT48, panggonan paling apik kanggo nampa warta terkini, pembaruan eksklusif, lan berbagi momen favorit panjenengan bab grup idola kesayangan kita, JKT48!</string>
+    <string name="title_welcome_page">Halo Fans JKT48!\nSugeng rawuh ing JKT48 FanFeed!</string>
+    <string name="title_register_page">Isi data panjenengan ing ngisor iki ya</string>
+    <string name="email">Email</string>
+    <string name="password">Sandi</string>
+    <string name="message_login_page">Mlebu menyang akun panjenengan kanggo tetep sambung karo komunitas penggemar JKT48</string>
+    <string name="title_login_page">Sugeng rawuh maneh, Fans JKT48!</string>
+    <string name="name">Jeneng</string>
+    <string name="logout">Metu</string>
+    <string name="logout_text">Metu</string>
+    <string name="title_detail_story">Shani Indira Natio</string>
+    <string name="description_detail_story">Deskripsi conto</string>
+    <string name="foto_shani">Foto Shani</string>
+    <string name="camera_x">CameraX</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="upload">Unggah</string>
+    <string name="empty_image_warning">Mangga masang berkas gambar dhisik.</string>
+    <string name="add_story">Tambah crita</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="shani_indira_natio">Shani Indira Natio</string>
+    <string name="sample_description">Deskripsi conto</string>
+
+    <string name="title_menu_1">🌟 Warta Teranyar</string>
+    <string name="title_menu_2">🎤 Konten Eksklusif</string>
+    <string name="title_menu_3">📅 Jadwal Acara</string>
+    <string name="title_menu_4">Miwiti Petualanganmu Saiki!</string>
+    <string name="desc_menu_1">Update real-time bab aktivitas lan warta teranyar saka JKT48.</string>
+    <string name="desc_menu_2">Video, foto, lan wawancara eksklusif sing mung isa ditemokake ing kene.</string>
+    <string name="desc_menu_3">Tetep informasi karo jadwal konser, meet and greet, lan acara khusus liyane.</string>
+    <string name="desc_menu_4">Klik tombol ing ngisor iki kanggo miwiti lan dadi bagian saka komunitas fans JKT48 sing paling anyar lan terinformasi!</string>
+    <string name="learn_now">Miwiti</string>
+</resources>

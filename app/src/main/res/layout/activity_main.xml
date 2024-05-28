@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
+        app:titleTextColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,8 +49,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
         android:contentDescription="@string/add_story"
+        android:backgroundTint="@color/colorAccent"
         android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"  />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
