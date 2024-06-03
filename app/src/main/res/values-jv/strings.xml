@@ -35,4 +35,6 @@
     <string name="desc_menu_3">Tetep informasi karo jadwal konser, meet and greet, lan acara khusus liyane.</string>
     <string name="desc_menu_4">Klik tombol ing ngisor iki kanggo miwiti lan dadi bagian saka komunitas fans JKT48 sing paling anyar lan terinformasi!</string>
     <string name="learn_now">Miwiti</string>
+    <string name="password_8_character">Sandi ora kena kurang saka 8 karakter</string>
+    <string name="password_required">Sandi kudu diisi</string>
 </resources>

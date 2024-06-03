@@ -35,4 +35,7 @@
     <string name="desc_menu_3">コンサート、ミート＆グリート、その他特別イベントのスケジュールを把握しましょう。</string>
     <string name="desc_menu_4">下のボタンをクリックして、最新の情報を持つJKT48ファンコミュニティの一員になりましょう！</string>
     <string name="learn_now">開始</string>
+    <string name="password_8_character">パスワードは8文字以上でなければなりません</string>
+    <string name="password_required">パスワードは必須です</string>
+
 </resources>
