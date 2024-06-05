@@ -1,20 +1,29 @@
 package com.example.storyapp.data
 
-import com.example.storyapp.data.api.ApiService
-import com.example.storyapp.data.api.DetailStoryResponse
-import com.example.storyapp.data.api.LoginResponse
-import com.example.storyapp.data.api.RegisterResponse
-import com.example.storyapp.data.api.StoryResponse
-import com.example.storyapp.data.api.UploadStoryResponse
+import androidx.lifecycle.LiveData
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.liveData
+import com.example.storyapp.data.network.ApiService
+import com.example.storyapp.data.network.DetailStoryResponse
+import com.example.storyapp.data.network.ListStoryItem
+import com.example.storyapp.data.network.LoginResponse
+import com.example.storyapp.data.network.RegisterResponse
+import com.example.storyapp.data.network.StoryResponse
+import com.example.storyapp.data.network.UploadStoryResponse
 import com.example.storyapp.data.pref.UserModel
 import com.example.storyapp.data.pref.UserPreference
+import com.example.storyapp.database.StoryDatabase
 import kotlinx.coroutines.flow.Flow
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 
 class UserRepository private constructor(
     private val apiService: ApiService,
-    private val userPreference: UserPreference
+    private val userPreference: UserPreference,
+    private val storyDatabase: StoryDatabase
 ) {
 
     suspend fun registerUser(name: String, email: String, password: String): RegisterResponse {
@@ -44,8 +53,22 @@ class UserRepository private constructor(
         userPreference.logout()
     }
 
-    suspend fun getStories(): StoryResponse {
-        return apiService.getStories()
+    fun getStories(): LiveData<PagingData<ListStoryItem>> {
+        @OptIn(ExperimentalPagingApi::class)
+        return Pager(
+            config = PagingConfig(
+                pageSize = 5
+            ),
+            remoteMediator = StoryRemoteMediator(storyDatabase, apiService),
+            pagingSourceFactory = {
+//                StoryPagingSource(apiService)
+                storyDatabase.storyDao().getAllStory()
+            }
+        ).liveData
+    }
+
+    suspend fun getStoriesWithLocation(): StoryResponse {
+        return apiService.getStoriesWithLocation()
     }
 
     suspend fun getStoryDetail(id: String): DetailStoryResponse {
@@ -57,6 +80,8 @@ class UserRepository private constructor(
     }
 
     companion object {
-        fun getInstance(apiService: ApiService, userPreference: UserPreference) = UserRepository(apiService, userPreference)
+        fun getInstance(apiService: ApiService,
+                        userPreference: UserPreference,
+                        storyDatabase: StoryDatabase) = UserRepository(apiService, userPreference, storyDatabase)
     }
 }

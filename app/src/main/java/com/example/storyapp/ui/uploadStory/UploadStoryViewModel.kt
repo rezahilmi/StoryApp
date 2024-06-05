@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.storyapp.data.ResultState
 import com.example.storyapp.data.UserRepository
-import com.example.storyapp.data.api.UploadStoryResponse
+import com.example.storyapp.data.network.UploadStoryResponse
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaType

@@ -1,5 +1,6 @@
-package com.example.storyapp.data.api
+package com.example.storyapp.data.network
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
 data class StoryResponse(
@@ -14,10 +15,11 @@ data class StoryResponse(
 	val message: String? = null
 )
 
+@Entity(tableName = "story")
 data class ListStoryItem(
 
 	@field:SerializedName("id")
-	val id: String? = null,
+	val id: String,
 
 	@field:SerializedName("name")
 	val name: String? = null,

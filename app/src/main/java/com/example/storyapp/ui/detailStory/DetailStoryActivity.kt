@@ -8,7 +8,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.example.storyapp.data.api.Story
+import com.example.storyapp.data.network.Story
 import com.example.storyapp.databinding.ActivityDetailStoryBinding
 import com.example.storyapp.ui.ViewModelFactory
 

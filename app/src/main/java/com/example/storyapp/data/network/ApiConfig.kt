@@ -1,4 +1,4 @@
-package com.example.storyapp.data.api
+package com.example.storyapp.data.network
 
 import android.util.Log
 import com.example.storyapp.BuildConfig

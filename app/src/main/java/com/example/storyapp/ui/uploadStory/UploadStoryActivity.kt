@@ -126,6 +126,8 @@ class UploadStoryActivity : AppCompatActivity() {
             Log.d("Image File", "showImage: ${imageFile.path}")
             val description = binding.edAddDescription.text.toString()
 
+            binding.buttonAdd.isEnabled = false
+
             uploadStoryViewModel.uploadImage(imageFile, description)
 
             uploadStoryViewModel.uploadResult.observe(this) { result ->
@@ -146,6 +148,7 @@ class UploadStoryActivity : AppCompatActivity() {
                             is ResultState.Error -> {
                                 showToast(result.error)
                                 showLoading(false)
+                                binding.buttonAdd.isEnabled = true
                             }
                         }
                     }

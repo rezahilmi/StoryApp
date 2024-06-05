@@ -18,6 +18,7 @@ import com.example.storyapp.R
 import com.example.storyapp.databinding.ActivityMainBinding
 import com.example.storyapp.ui.uploadStory.UploadStoryActivity
 import com.example.storyapp.ui.ViewModelFactory
+import com.example.storyapp.ui.maps.MapsActivity
 import com.example.storyapp.ui.welcome.WelcomeActivity
 
 class MainActivity : AppCompatActivity() {
@@ -38,8 +39,6 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.rvStories)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = StoryAdapter()
-        recyclerView.adapter = adapter
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -54,11 +53,6 @@ class MainActivity : AppCompatActivity() {
         val factory = ViewModelFactory.getInstance(this)
         mainViewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
 
-        mainViewModel.storyList.observe(this) { stories ->
-            stories?.let {
-                adapter.setStories(it)
-            }
-        }
 
         mainViewModel.isLoading.observe(this) { isLoading ->
             showLoading(isLoading)
@@ -68,10 +62,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, UploadStoryActivity::class.java))
         }
 
-        mainViewModel.fetchStories()
-
         setupView()
         setupAction()
+        getData()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -95,6 +88,11 @@ class MainActivity : AppCompatActivity() {
     private fun setupAction() {
         binding.toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
+                R.id.action_map -> {
+                    val intent = Intent(this, MapsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
                 R.id.action_logout -> {
                     viewModel.logout()
                     true
@@ -102,6 +100,18 @@ class MainActivity : AppCompatActivity() {
 
                 else -> false
             }
+        }
+    }
+
+    private fun getData() {
+        val adapter = StoryAdapter()
+        binding.rvStories.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateAdapter {
+                adapter.retry()
+            }
+        )
+        mainViewModel.storyList.observe(this) {
+            adapter.submitData(lifecycle, it)
         }
     }
 

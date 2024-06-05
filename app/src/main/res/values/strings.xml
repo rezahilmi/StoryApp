@@ -36,4 +36,9 @@
     <string name="learn_now">Get Started</string>
     <string name="password_8_character">Password must not be less than 8 characters</string>
     <string name="password_required">Password is required</string>
+    <string name="action_logout">Logout</string>
+    <string name="map_text">map</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="retry">try again</string>
+    <string name="timeout">Timeout</string>
 </resources>
