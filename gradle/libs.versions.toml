@@ -1,4 +1,6 @@
 [versions]
+
+roomCompiler = "2.5.2"
 roomPaging = "2.4.0-rc01"
 pagingRuntimeKtx = "3.1.0"
 retrofit = "2.9.0"
@@ -62,6 +64,7 @@ play-services-maps = { group = "com.google.android.gms", name = "play-services-m
 androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
 androidx-paging-common-android = { group = "androidx.paging", name = "paging-common-android", version.ref = "pagingCommonAndroid" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

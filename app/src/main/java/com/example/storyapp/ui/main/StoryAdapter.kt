@@ -73,7 +73,7 @@ class StoryAdapter :
             }
 
             override fun areContentsTheSame(oldItem: ListStoryItem, newItem: ListStoryItem): Boolean {
-                return oldItem == newItem
+                return oldItem.id == newItem.id
             }
         }
     }

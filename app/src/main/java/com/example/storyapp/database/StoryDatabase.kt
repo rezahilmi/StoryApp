@@ -8,7 +8,7 @@ import com.example.storyapp.data.network.ListStoryItem
 
 @Database(
     entities = [ListStoryItem::class, RemoteKeys::class],
-    version = 2,
+    version = 1,
     exportSchema = false
 )
 abstract class StoryDatabase : RoomDatabase() {
