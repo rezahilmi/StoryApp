@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
     }
     private lateinit var binding: ActivityMainBinding
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: StoryAdapter
     private lateinit var mainViewModel: MainViewModel
     private lateinit var toolbar: Toolbar
 

@@ -3,6 +3,7 @@ package com.example.storyapp.ui.uploadStory
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Location
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -23,13 +24,17 @@ import androidx.core.net.toUri
 import com.example.storyapp.data.ResultState
 import com.example.storyapp.ui.main.MainActivity
 import com.example.storyapp.ui.uploadStory.CameraActivity.Companion.CAMERAX_RESULT
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 
 class UploadStoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUploadStoryBinding
     private lateinit var uploadStoryViewModel: UploadStoryViewModel
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private var currentImageUri: Uri? = null
+    private var location: Location? = null
 
     private val requestPermissionLauncher =
         registerForActivityResult(
@@ -53,6 +58,8 @@ class UploadStoryActivity : AppCompatActivity() {
         binding = ActivityUploadStoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
         setupView()
 
         val factory = ViewModelFactory.getInstance(this)
@@ -63,6 +70,13 @@ class UploadStoryActivity : AppCompatActivity() {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
 
+        binding.switchShowLocation .setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked) {
+                getLastLocation()
+            } else {
+                location = null
+            }
+        }
 
         binding.apply {
             galleryButton.setOnClickListener { startGallery() }
@@ -120,15 +134,40 @@ class UploadStoryActivity : AppCompatActivity() {
             }
         }
 
+    private fun getLastLocation() {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            fusedLocationClient.lastLocation
+                .addOnSuccessListener { loc: Location? ->
+                    location = loc
+                }
+                .addOnFailureListener { e: Exception ->
+                    Log.e("Location", "Failed to get location: ${e.message}")
+                }
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.ACCESS_COARSE_LOCATION)
+        }
+    }
+
     private fun uploadImage() {
         currentImageUri?.let { uri ->
             val imageFile = uriToFile(uri, this).reduceFileImage()
             Log.d("Image File", "showImage: ${imageFile.path}")
             val description = binding.edAddDescription.text.toString()
+            var lat : String? = null
+            var lon : String? = null
+
+            if(location != null) {
+                lat = location?.latitude.toString()
+                lon = location?.longitude.toString()
+            }
 
             binding.buttonAdd.isEnabled = false
 
-            uploadStoryViewModel.uploadImage(imageFile, description)
+            uploadStoryViewModel.uploadImage(imageFile, description, lat, lon)
 
             uploadStoryViewModel.uploadResult.observe(this) { result ->
                     if (result != null) {

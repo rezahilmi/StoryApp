@@ -23,8 +23,10 @@ class UploadStoryViewModel(private val repository: UserRepository) : ViewModel()
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun uploadImage(imageFile: File, description: String) {
-        val requestBody = description.toRequestBody("text/plain".toMediaType())
+    fun uploadImage(imageFile: File, description: String, lat: String?, lon: String?) {
+        val latitudeRequestBody = lat?.toRequestBody("text/plain".toMediaType())
+        val longitudeRequestBody = lon?.toRequestBody("text/plain".toMediaType())
+        val descriptionRequestBody = description.toRequestBody("text/plain".toMediaType())
         val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
         val multipartBody = MultipartBody.Part.createFormData(
             "photo",
@@ -36,7 +38,7 @@ class UploadStoryViewModel(private val repository: UserRepository) : ViewModel()
 
         viewModelScope.launch {
             try {
-                val response = repository.uploadImage(multipartBody, requestBody)
+                val response = repository.uploadImage(multipartBody, descriptionRequestBody, latitudeRequestBody, longitudeRequestBody)
                 _uploadResult.value = ResultState.Success(response)
             } catch (e: HttpException) {
                 val errorBody = e.response()?.errorBody()?.string()

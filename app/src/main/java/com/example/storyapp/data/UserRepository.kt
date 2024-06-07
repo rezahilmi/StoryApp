@@ -57,7 +57,7 @@ class UserRepository private constructor(
         @OptIn(ExperimentalPagingApi::class)
         return Pager(
             config = PagingConfig(
-                pageSize = 5
+                pageSize = 20
             ),
             remoteMediator = StoryRemoteMediator(storyDatabase, apiService),
             pagingSourceFactory = {
@@ -75,8 +75,8 @@ class UserRepository private constructor(
         return apiService.getDetailStory(id)
     }
 
-    suspend fun uploadImage(imageFile: MultipartBody.Part, description: RequestBody): UploadStoryResponse {
-        return apiService.uploadImage(imageFile, description)
+    suspend fun uploadImage(imageFile: MultipartBody.Part, description: RequestBody,lat: RequestBody?, lon: RequestBody?): UploadStoryResponse {
+        return apiService.uploadImage(imageFile, description, lat, lon)
     }
 
     companion object {

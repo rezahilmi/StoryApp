@@ -52,8 +52,8 @@ class StoryRemoteMediator(
             database.withTransaction {
                 if (loadType == LoadType.REFRESH) {
                     database.remoteKeysDao().deleteRemoteKeys()
+                    database.storyDao().deleteAll()
                 }
-                database.storyDao().deleteAll()
                 val prevKey = if (page == 1) null else page - 1
                 val nextKey = if (endOfPaginationReached) null else page + 1
                 val keys = responseData.map {
